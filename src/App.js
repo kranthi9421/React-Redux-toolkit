@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import UserDetails from "./UserDetails";
+import { useDispatch, useSelector } from "react-redux";
+import { removeUser } from "./UserSlice";
 
-function App() {
+const App = () => {
+  const data = useSelector((state) => state.users);
+
+  const dispatch = useDispatch();
+
+  const delUser = (id) => {
+    dispatch(removeUser(id));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Home</h1>
+      <UserDetails />
+      {data.map((item, id) => (
+        <li key={id}>
+          {item}
+          <button onClick={() => delUser(id)}>Del</button>
+        </li>
+      ))}
     </div>
   );
-}
+};
 
 export default App;
