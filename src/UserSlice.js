@@ -1,21 +1,36 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
+const initialState = {
+  cars: 0,
+  loading: false,
+};
+
+export const getData = createAsyncThunk("posts", () => {
+  return new Promise((res) => {
+    setTimeout(() => res(""), 5000);
+  });
+});
 
 const userSlice = createSlice({
   name: "user",
-  initialState: [],
+  initialState,
   reducers: {
-    addUser(state, action) {
-      state.push(action.payload);
+    increment(state, action) {
+      state.cars += 1;
     },
-    removeUser(state, action) {
-      state.splice(action.payload, 1);
+  },
+  extraReducers: {
+    [getData.pending]: (state, action) => {
+      state.loading = true;
     },
-    deleteUser(state, action) {
-      return [];
+    [getData.fulfilled]: (state, action) => {
+      state.cars += 1
+      state.loading = false
     },
   },
 });
 
-export const { addUser, removeUser, deleteUser } = userSlice.actions;
+export const { increment } = userSlice.actions;
 
 export default userSlice.reducer;

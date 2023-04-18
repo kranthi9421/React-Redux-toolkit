@@ -1,0 +1,36 @@
+{
+  "people": [
+    {
+      "id": 1,
+      "name": "kranthi kumar",
+      "email": "kranthi@gmail.com",
+      "phone": "i-phone"
+    },
+    {
+      "name": "sony Naveen",
+      "email": "sony@gmail.com",
+      "phone": "one-plus",
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "Hayu",
+      "email": "Hayu@gmail.com",
+      "phone": "Samsung"
+    },
+    {
+      "name": "mounica loves kranthi",
+      "email": "mounica@good.com",
+      "phone": "iphone",
+      "userId": 4,
+      "id": 4
+    },
+    {
+      "id": 5,
+      "name": "Budda",
+      "email": "Budda@gmail.com",
+      "phone": "vivo"
+    }
+  ]
+}
